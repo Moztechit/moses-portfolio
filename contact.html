@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moses Mwangi | Home</title>
+  <meta name="description" content="Moses Mwangi – IT Technician & Web Developer. Building industrial systems and interactive web projects with 3D animations.">
+  
+  <!-- Open Graph / Twitter for social preview -->
+  <meta property="og:title" content="Moses Mwangi | Home">
+  <meta property="og:description" content="Explore Moses Mwangi's portfolio of industrial maintenance expertise and web development projects with interactive 3D animations.">
+  <meta property="og:image" content="https://moztechit.github.io/moses-portfolio/assets/myself.png">
+  <meta property="og:url" content="https://moztechit.github.io/moses-portfolio/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="contact">
+
+<!-- Loader -->
+<div id="loader"><div class="loader-ring"></div></div>
+
+<!-- Glass overlay -->
+<div class="glass-overlay"></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">MozTechIT</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- Contact Section -->
+<section class="content-section">
+  <h2 class="section-title glow-text">Let's Build Something Exceptional</h2>
+
+  <p>
+    Whether you need industrial expertise or advanced web development, I am ready to deliver precision-driven solutions. Fill out the form below and I will respond promptly.
+  </p>
+
+  <form id="contact-form">
+    <input type="text" name="user_name" placeholder="Your Name" required>
+    <input type="email" name="user_email" placeholder="Your Email" required>
+    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("22OjOAoH8iUhWPwDB");
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  emailjs.sendForm("service_c91a0it","template_wi7f5y9",this)
+  .then(()=>{
+    alert("Message sent successfully! Thank you for reaching out.");
+    this.reset();
+  },()=>{
+    alert("Failed to send message. Please try again later.");
+  });
+});
+</script>
+
+<!-- Loader & Cursor / Transitions -->
+<script src="js/transitions.js"></script>
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
