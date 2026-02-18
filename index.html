@@ -1,54 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moses Mwangi | Home</title>
-  <meta name="description" content="Moses Mwangi – IT Technician & Web Developer. Building industrial systems and interactive web projects with 3D animations.">
-  
-  <!-- Open Graph / Twitter for social preview -->
-  <meta property="og:title" content="Moses Mwangi | Home">
-  <meta property="og:description" content="Explore Moses Mwangi's portfolio of industrial maintenance expertise and web development projects with interactive 3D animations.">
-  <meta property="og:image" content="https://moztechit.github.io/moses-portfolio/assets/myself.png">
-  <meta property="og:url" content="https://moztechit.github.io/moses-portfolio/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moses Mwangi - IT Technician & Web Developer</title>
+    <meta name="description" content="Premium portfolio of Moses Mwangi, IT Technician and Web Developer specializing in modern web solutions">
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body data-page="index">
+<body>
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas" class="bg-canvas"></canvas>
+    
+    <!-- Mouse Follower -->
+    <div class="mouse-follower"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="MM Logo" class="logo-img">
+                <span class="logo-text">Moses Mwangi</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<!-- Loader -->
-<div id="loader"><div class="loader-ring"></div></div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <img src="images/myself.png" alt="Moses Mwangi" class="hero-image">
+                <div class="hero-image-glow"></div>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="name-highlight">Moses</span>Moses Mwangi
+            </h1>
+            
+            <div class="hero-subtitle">
+                <span class="typing-text" data-texts='["IT Technician", "Web Developer", "Problem Solver", "Innovation Enthusiast"]'></span>
+                <span class="typing-cursor">|</span>
+            </div>
+            
+            <p class="hero-description">
+                Transforming ideas into digital excellence through cutting-edge technology solutions
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary cta-button">
+                    <span>Explore My Work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-secondary contact-button">
+                    <span>Get In Touch</span>
+                    <i class="fas fa-envelope"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll to explore</span>
+        </div>
+    </section>
 
-<!-- Glass overlay -->
-<div class="glass-overlay"></div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-subtitle">Crafting Digital Excellence</div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-card glass-card">
+                    <div class="about-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Creating responsive, modern websites with cutting-edge technologies and best practices.</p>
+                </div>
+                
+                <div class="about-card glass-card">
+                    <div class="about-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>IT Solutions</h3>
+                    <p>Providing comprehensive IT support and technical solutions for businesses and individuals.</p>
+                </div>
+                
+                <div class="about-card glass-card">
+                    <div class="about-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Turning creative ideas into functional digital solutions that drive results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Navigation -->
-<nav>
-  <div class="logo">MozTechIT</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+    <!-- ..............Projects Section .....................
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Premium Projects</h2>
+                <div class="section-subtitle">High-Quality Websites Available for Purchase</div>
+            </div>
+            
+            <div class="projects-grid">
+                ............... Projects will be populated by JavaScript ............
+            </div>
+        </div>
+    </section> -->
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <div id="typing"></div>
-    <p>Building high-performance systems—mechanical & digital solutions.</p>
-    <a href="portfolio.html" class="btn">View My Work</a>
-  </div>
-  <img src="assets/myself.png" alt="Moses Mwangi" class="profile-img">
-</section>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="section-subtitle">Expertise in Modern Technologies</div>
+            </div>
+            
+            <div class="skills-content">
+                <div class="skills-chart-container glass-card">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-item glass-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>HTML5</h4>
+                            <div class="skill-progress">
+                                <div class="skill-bar" data-percentage="95"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item glass-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>CSS3</h4>
+                            <div class="skill-progress">
+                                <div class="skill-bar" data-percentage="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item glass-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>JavaScript</h4>
+                            <div class="skill-progress">
+                                <div class="skill-bar" data-percentage="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item glass-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>React</h4>
+                            <div class="skill-progress">
+                                <div class="skill-bar" data-percentage="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Scripts -->
-<script src="js/transitions.js"></script>
-<script src="js/typing.js"></script>
-<script type="module" src="js/main.js"></script>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-subtitle">Let's Create Something Amazing Together</div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info glass-card">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 720 933 253</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>moses.mwangi@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                </div>
+                
+                <form class="contact-form glass-card" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy;Copyright 2026 Moses Mwangi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Social Icons -->
+    <div class="floating-social">
+        <a href="https://facebook.com" target="_blank" class="social-icon facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-icon twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="social-icon linkedin">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://pinterest.com" target="_blank" class="social-icon pinterest">
+            <i class="fab fa-pinterest-p"></i>
+        </a>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <img src="" alt="Project Preview" class="modal-image">
+                <h3 class="modal-title"></h3>
+                <p class="modal-description"></p>
+                <div class="modal-tech"></div>
+                <div class="modal-price"></div>
+                <button class="btn btn-primary purchase-btn" data-project-id="">
+                    <span>Purchase Now</span>
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="paymentModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <h3>Complete Your Purchase</h3>
+                <div class="payment-methods">
+                    <button class="payment-method" data-method="stripe">
+                        <i class="fab fa-stripe"></i>
+                        <span>Stripe</span>
+                    </button>
+                    <button class="payment-method" data-method="paypal">
+                        <i class="fab fa-paypal"></i>
+                        <span>PayPal</span>
+                    </button>
+                    <button class="payment-method" data-method="visa">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>Visa</span>
+                    </button>
+                    <button class="payment-method" data-method="mastercard">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <span>Mastercard</span>
+                    </button>
+                    <button class="payment-method" data-method="mpesa">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Lipa na M-Pesa</span>
+                    </button>
+                </div>
+                <div class="purchase-info">
+                    <p>After purchase, you'll receive:</p>
+                    <ul>
+                        <li>3 download attempts</li>
+                        <li>24-hour access</li>
+                        <li>Full source code</li>
+                        <li>Premium support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Animation -->
+    <div class="success-animation" id="successAnimation">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <h3>Purchase Successful!</h3>
+        <p>Your download link has been sent to your email.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/three-bg.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/projects-enhanced.js"></script>
+    <script src="js/payment-system.js"></script>
+    
 </body>
 </html>
